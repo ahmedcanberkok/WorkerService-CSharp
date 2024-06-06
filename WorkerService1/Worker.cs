@@ -36,7 +36,7 @@ namespace WorkerService1
 
                     if (times.Contains(currentTime))
                     {
-                        await AppendTextToFileAsync(currentTime);
+                        await PrependTextToFileAsync(currentTime);
                     }
                 }
                 catch (Exception ex)
@@ -64,7 +64,7 @@ namespace WorkerService1
             }
         }
 
-        private async Task AppendTextToFileAsync(string time)
+        private async Task PrependTextToFileAsync(string time)
         {
             try
             {
@@ -76,9 +76,18 @@ namespace WorkerService1
                     Directory.CreateDirectory(_outputDirectory);
                 }
 
-                using (var writer = new StreamWriter(filePath, append: true))
+                var newLogEntry = $"Merhaba Canberk Saat þuan {time}";
+                string existingContent = "";
+
+                if (File.Exists(filePath))
                 {
-                    await writer.WriteLineAsync($"Merhaba Canberk Saat þuan {time}"); // Dosyanýn içine yazýlacak
+                    existingContent = await File.ReadAllTextAsync(filePath);
+                }
+
+                using (var writer = new StreamWriter(filePath, false)) // false, dosyanýn üzerine yazmak için
+                {
+                    await writer.WriteLineAsync(newLogEntry);
+                    await writer.WriteLineAsync(existingContent);
                 }
 
                 _logger.LogInformation($"Time {time} appended to file: {filePath}");
