@@ -1,0 +1,32 @@
+﻿# Visual Studio files
+.vs/
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Other files and folders to ignore
+*.log
+*.tlog
+*.ide
+*.sdf
+*.pyc
+*.pyo
+*.tmp
+*.vsdmlog
