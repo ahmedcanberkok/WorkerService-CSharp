@@ -12,6 +12,7 @@ WorkerService-CSharp, belirli saatlerde belirtilen bir klasörde günlük dosyal
 - Belirli saatlerde belirtilen bir klasörde günlük dosyaları oluşturur.
 - Her gün için yeni bir dosya oluşturur.
 - Eşleşen saatlerde dosyaya mesaj yazar.
+- Her Yeni mesaj dosyanın en üstüne yazılır.
 - Loglama yaparak hizmetin çalışma durumu hakkında bilgi verir.
 
 ## Kurulum
